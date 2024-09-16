@@ -214,6 +214,7 @@ class Gen_compressed(threading.Thread):
     # Define the parameters for the POST request.
     params = [
         ("compilation_level", "SIMPLE_OPTIMIZATIONS"),
+        ("use_closure_library", "true"),
         ("output_format", "json"),
         ("output_info", "compiled_code"),
         ("output_info", "warnings"),
@@ -243,6 +244,7 @@ class Gen_compressed(threading.Thread):
     # Define the parameters for the POST request.
     params = [
         ("compilation_level", "SIMPLE_OPTIMIZATIONS"),
+        ("use_closure_library", "true"),
         ("output_format", "json"),
         ("output_info", "compiled_code"),
         ("output_info", "warnings"),
@@ -527,7 +529,7 @@ https://developers.google.com/blockly/hacking/closure""")
   # Uncompressed is limited by processor speed.
   # Compressed is limited by network and server speed.
   Gen_uncompressed(search_paths).start()
-  Gen_compressed(search_paths).start()
+  # Gen_compressed(search_paths).start()
 
   # This is run locally in a separate thread.
   Gen_langfiles().start()

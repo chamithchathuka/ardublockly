@@ -231,4 +231,9 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="spi_transfer"></block>' +
 '    <block type="spi_transfer_return"></block>' +
 '  </category>' +
+'  <sep></sep>' +
+'  <category id="catStartup" name="Startup">' +
+'    <block type="starter_block"></block>' +
+'  </category>' +
+
 '</xml>';

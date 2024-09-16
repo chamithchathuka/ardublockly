@@ -34,7 +34,8 @@ Blockly.Arduino['servo_write'] = function(block) {
   Blockly.Arduino.reservePin(
       block, pinKey, Blockly.Arduino.PinTypes.SERVO, 'Servo Write');
 
-  Blockly.Arduino.addInclude('servo', '#include <Servo.h>');
+  Blockly.Arduino.addInclude('servo', '#include <Servo2.h>');
+  Blockly.Arduino.addInclude('servo2', '#include <Servo1.h>');
   Blockly.Arduino.addDeclaration('servo_' + pinKey, 'Servo ' + servoName + ';');
 
   var setupCode = servoName + '.attach(' + pinKey + ');';
