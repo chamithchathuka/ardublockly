@@ -53,10 +53,10 @@ Ardublockly.bindDesignEventListeners = function() {
   document.getElementById('xml_collapsible_header').addEventListener(
       'click', Ardublockly.buttonLoadXmlCodeDisplay);
   // Toggle the content height on click to the IDE output collapsible header
-  document.getElementById('ide_output_collapsible_header').addEventListener(
-      'click', function() {
-        Ardublockly.contentHeightToggle();
-      });
+//  document.getElementById('ide_output_collapsible_header').addEventListener(
+//      'click', function() {
+//        Ardublockly.contentHeightToggle();
+//      });
   // Display/hide the additional IDE buttons when mouse over/out of play button
   $('#button_ide_large').mouseenter(function() {
       Ardublockly.showExtraIdeButtons(true);
@@ -300,12 +300,13 @@ Ardublockly.materialAlert = function(title, body, confirm, callback) {
 
 /** Opens the modal that displays the "not connected to server" message. */
 Ardublockly.openNotConnectedModal = function() {
-  $('#not_running_dialog').openModal({
-    dismissible: true,
-    opacity: .5,
-    in_duration: 200,
-    out_duration: 250
-  });
+    console.log('')
+//  $('#not_running_dialog').openModal({
+//    dismissible: true,
+//    opacity: .5,
+//    in_duration: 200,
+//    out_duration: 250
+//  });
 };
 
 /** Opens the modal that displays the Settings. */
