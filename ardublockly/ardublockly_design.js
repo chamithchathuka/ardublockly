@@ -87,46 +87,46 @@ Ardublockly.buttonLoadXmlCodeDisplay = function() {
  * @param {!string} value One of the 3 possible values from the drop down select
  *     in the settings modal: 'upload', 'verify', or 'open'.
  */
-//Ardublockly.changeIdeButtonsDesign = function(value) {
-//  var buttonLeft = document.getElementById('button_ide_left');
-//  var iconLeft = document.getElementById('button_ide_left_icon');
-//  var buttonMiddle = document.getElementById('button_ide_middle');
-//  var iconMiddle = document.getElementById('button_ide_middle_icon');
-//  var buttonLarge = document.getElementById('button_ide_large');
-//  var iconLarge = document.getElementById('button_ide_large_icon');
-//
-//  if (value === 'upload') {
-//    buttonLeft.className =
-//        buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
-//    iconLeft.className = 'mdi-action-open-in-browser';
-//    buttonMiddle.className =
-//        buttonMiddle.className.replace(/arduino_\S+/, 'arduino_teal');
-//    iconMiddle.className = 'mdi-navigation-check';
-//    buttonLarge.className =
-//        buttonLarge.className.replace(/arduino_\S+/, 'arduino_orange');
-//    iconLarge.className = 'mdi-av-play-arrow';
-//  } else if (value === 'verify') {
-//    buttonLeft.className =
-//        buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
-//    iconLeft.className = 'mdi-action-open-in-browser';
-//    buttonMiddle.className =
-//        buttonMiddle.className.replace(/arduino_\S+/, 'arduino_orange');
-//    iconMiddle.className = 'mdi-av-play-arrow';
-//    buttonLarge.className =
-//        buttonLarge.className.replace(/arduino_\S+/, 'arduino_teal');
-//    iconLarge.className = 'mdi-navigation-check';
-//  } else if (value === 'open') {
-//    buttonLeft.className =
-//        buttonLeft.className.replace(/arduino_\S+/, 'arduino_teal');
-//    iconLeft.className = 'mdi-navigation-check';
-//    buttonMiddle.className =
-//        buttonMiddle.className.replace(/arduino_\S+/, 'arduino_orange');
-//    iconMiddle.className = 'mdi-av-play-arrow';
-//    buttonLarge.className =
-//        buttonLarge.className.replace(/arduino_\S+/, 'arduino_yellow');
-//    iconLarge.className = 'mdi-action-open-in-browser';
-//  }
-//};
+Ardublockly.changeIdeButtonsDesign = function(value) {
+  var buttonLeft = document.getElementById('button_ide_left');
+  var iconLeft = document.getElementById('button_ide_left_icon');
+  var buttonMiddle = document.getElementById('button_ide_middle');
+  var iconMiddle = document.getElementById('button_ide_middle_icon');
+  var buttonLarge = document.getElementById('button_ide_large');
+  var iconLarge = document.getElementById('button_ide_large_icon');
+
+  if (value === 'upload') {
+    buttonLeft.className =
+        buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
+    iconLeft.className = 'mdi-action-open-in-browser';
+    buttonMiddle.className =
+        buttonMiddle.className.replace(/arduino_\S+/, 'arduino_teal');
+    iconMiddle.className = 'mdi-navigation-check';
+    buttonLarge.className =
+        buttonLarge.className.replace(/arduino_\S+/, 'arduino_orange');
+    iconLarge.className = 'mdi-av-play-arrow';
+  } else if (value === 'verify') {
+    buttonLeft.className =
+        buttonLeft.className.replace(/arduino_\S+/, 'arduino_yellow');
+    iconLeft.className = 'mdi-action-open-in-browser';
+    buttonMiddle.className =
+        buttonMiddle.className.replace(/arduino_\S+/, 'arduino_orange');
+    iconMiddle.className = 'mdi-av-play-arrow';
+    buttonLarge.className =
+        buttonLarge.className.replace(/arduino_\S+/, 'arduino_teal');
+    iconLarge.className = 'mdi-navigation-check';
+  } else if (value === 'open') {
+    buttonLeft.className =
+        buttonLeft.className.replace(/arduino_\S+/, 'arduino_teal');
+    iconLeft.className = 'mdi-navigation-check';
+    buttonMiddle.className =
+        buttonMiddle.className.replace(/arduino_\S+/, 'arduino_orange');
+    iconMiddle.className = 'mdi-av-play-arrow';
+    buttonLarge.className =
+        buttonLarge.className.replace(/arduino_\S+/, 'arduino_yellow');
+    iconLarge.className = 'mdi-action-open-in-browser';
+  }
+};
 
 /**
  * Displays or hides the additional Arduino IDE action buttons.
@@ -299,14 +299,14 @@ Ardublockly.materialAlert = function(title, body, confirm, callback) {
 };
 
 /** Opens the modal that displays the "not connected to server" message. */
-Ardublockly.openLoginModel = function() {
-
-  $('#login_dialog').openModal({
-    dismissible: true,
-    opacity: .5,
-    in_duration: 200,
-    out_duration: 250
-  });
+Ardublockly.openNotConnectedModal = function() {
+    console.log('')
+//  $('#not_running_dialog').openModal({
+//    dismissible: true,
+//    opacity: .5,
+//    in_duration: 200,
+//    out_duration: 250
+//  });
 };
 
 /** Opens the modal that displays the Settings. */

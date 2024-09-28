@@ -20,7 +20,7 @@ Ardublockly.init = function() {
   Ardublockly.importExtraBlocks();
 
   Ardublockly.designJsInit();
-//  Ardublockly.initialiseIdeButtons();
+  Ardublockly.initialiseIdeButtons();
 
   Ardublockly.bindDesignEventListeners();
   Ardublockly.bindActionFunctions();
@@ -38,11 +38,8 @@ Ardublockly.init = function() {
 Ardublockly.bindActionFunctions = function() {
   // Navigation buttons
   Ardublockly.bindClick_('button_load', Ardublockly.loadUserXmlFile);
-  Ardublockly.bindClick_('button_save', Ardublockly.saveXmlFile);
-  Ardublockly.bindClick_('button_save_ino', Ardublockly.uploadFile);
-//  Ardublockly.bindClick_('button_save_ino', Ardublockly.saveSketchFile);
-//  Ardublockly.bindClick_('button_delete', Ardublockly.discardAllBlocks);
-  Ardublockly.bindClick_('button_login', Ardublockly.openLoginModel);
+  Ardublockly.bindClick_('button_save', Ardublockly.saveSketchFile);
+  Ardublockly.bindClick_('button_delete', Ardublockly.discardAllBlocks);
 
   // Side menu buttons, they also close the side menu
   Ardublockly.bindClick_('menu_load', function() {
@@ -57,22 +54,17 @@ Ardublockly.bindActionFunctions = function() {
     Ardublockly.discardAllBlocks();
     $('.button-collapse').sideNav('hide');
   });
-
-   Ardublockly.bindClick_('menu_login', function() {
-        Ardublockly.openLoginModel();
-      $('.button-collapse').sideNav('hide');
-    });
 //
   // Floating buttons
-//  Ardublockly.bindClick_('button_ide_large', function() {
-//    Ardublockly.ideButtonLargeAction();
-//  });
-//  Ardublockly.bindClick_('button_ide_middle', function() {
-//      Ardublockly.ideButtonMiddleAction();
-//  });
-//  Ardublockly.bindClick_('button_ide_left', function() {
-//    Ardublockly.ideButtonLeftAction();
-//  });
+  Ardublockly.bindClick_('button_ide_large', function() {
+    Ardublockly.ideButtonLargeAction();
+  });
+  Ardublockly.bindClick_('button_ide_middle', function() {
+      Ardublockly.ideButtonMiddleAction();
+  });
+  Ardublockly.bindClick_('button_ide_left', function() {
+    Ardublockly.ideButtonLeftAction();
+  });
   Ardublockly.bindClick_('button_load_xml', Ardublockly.XmlTextareaToBlocks);
   Ardublockly.bindClick_('button_toggle_toolbox', Ardublockly.toogleToolbox);
 
@@ -119,53 +111,53 @@ Ardublockly.ideSendUpload = function() {
   Ardublockly.sendCode();
 };
 
-///** Sets the Ardublockly server IDE setting to verify and sends the code. */
-//Ardublockly.ideSendVerify = function() {
-//  // Check if this is the currently selected option before edit sever setting
-//  if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendVerify) {
-//    Ardublockly.showExtraIdeButtons(false);
-//    Ardublockly.setIdeSettings(null, 'verify');
-//  }
-//  Ardublockly.shortMessage(Ardublockly.getLocalStr('verifyingSketch'));
-//  Ardublockly.resetIdeOutputContent();
-//  Ardublockly.sendCode();
-//};
+/** Sets the Ardublockly server IDE setting to verify and sends the code. */
+Ardublockly.ideSendVerify = function() {
+  // Check if this is the currently selected option before edit sever setting
+  if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendVerify) {
+    Ardublockly.showExtraIdeButtons(false);
+    Ardublockly.setIdeSettings(null, 'verify');
+  }
+  Ardublockly.shortMessage(Ardublockly.getLocalStr('verifyingSketch'));
+  Ardublockly.resetIdeOutputContent();
+  Ardublockly.sendCode();
+};
 
 /** Sets the Ardublockly server IDE setting to open and sends the code. */
-//Ardublockly.ideSendOpen = function() {
-//  // Check if this is the currently selected option before edit sever setting
-//  if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendOpen) {
-//    Ardublockly.showExtraIdeButtons(false);
-//    Ardublockly.setIdeSettings(null, 'open');
-//  }
-//  Ardublockly.shortMessage(Ardublockly.getLocalStr('openingSketch'));
-//  Ardublockly.resetIdeOutputContent();
-//  Ardublockly.sendCode();
-//};
+Ardublockly.ideSendOpen = function() {
+  // Check if this is the currently selected option before edit sever setting
+  if (Ardublockly.ideButtonLargeAction !== Ardublockly.ideSendOpen) {
+    Ardublockly.showExtraIdeButtons(false);
+    Ardublockly.setIdeSettings(null, 'open');
+  }
+  Ardublockly.shortMessage(Ardublockly.getLocalStr('openingSketch'));
+  Ardublockly.resetIdeOutputContent();
+  Ardublockly.sendCode();
+};
 
 /** Function bound to the left IDE button, to be changed based on settings. */
-//Ardublockly.ideButtonLargeAction = Ardublockly.ideSendUpload;
-//
-///** Function bound to the middle IDE button, to be changed based on settings. */
-//Ardublockly.ideButtonMiddleAction = Ardublockly.ideSendVerify;
-//
-///** Function bound to the large IDE button, to be changed based on settings. */
-//Ardublockly.ideButtonLeftAction = Ardublockly.ideSendOpen;
+Ardublockly.ideButtonLargeAction = Ardublockly.ideSendUpload;
+
+/** Function bound to the middle IDE button, to be changed based on settings. */
+Ardublockly.ideButtonMiddleAction = Ardublockly.ideSendVerify;
+
+/** Function bound to the large IDE button, to be changed based on settings. */
+Ardublockly.ideButtonLeftAction = Ardublockly.ideSendOpen;
 
 /** Initialises the IDE buttons with the default option from the server. */
-//Ardublockly.initialiseIdeButtons = function() {
-//  document.getElementById('button_ide_left').title =
-//      Ardublockly.getLocalStr('openSketch');
-//  document.getElementById('button_ide_middle').title =
-//      Ardublockly.getLocalStr('verifySketch');
-//  document.getElementById('button_ide_large').title =
-//      Ardublockly.getLocalStr('uploadSketch');
-//  ArdublocklyServer.requestIdeOptions(function(jsonObj) {
-//    if (jsonObj != null) {
-//      Ardublockly.changeIdeButtons(jsonObj.selected);
-//    } // else Null: Ardublockly server is not running, do nothing
-//  });
-//};
+Ardublockly.initialiseIdeButtons = function() {
+  document.getElementById('button_ide_left').title =
+      Ardublockly.getLocalStr('openSketch');
+  document.getElementById('button_ide_middle').title =
+      Ardublockly.getLocalStr('verifySketch');
+  document.getElementById('button_ide_large').title =
+      Ardublockly.getLocalStr('uploadSketch');
+  ArdublocklyServer.requestIdeOptions(function(jsonObj) {
+    if (jsonObj != null) {
+      Ardublockly.changeIdeButtons(jsonObj.selected);
+    } // else Null: Ardublockly server is not running, do nothing
+  });
+};
 
 /**
  * Changes the IDE launch buttons based on the option indicated in the argument.
@@ -309,135 +301,6 @@ Ardublockly.saveSketchFile = function() {
       document.getElementById('sketch_name').value + '.ino',
       Ardublockly.generateArduino());
 };
-
-Ardublockly.uploadFile = function() {
-
-  if ($(event.target).is('#login_dialog')) {
-        $('#login_dialog').closeModal(); // Close the modal if the background is clicked
-    }
-
-if (firebase.auth().currentUser) {
-    // User is signed in, proceed to get the ID token
-    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-        .then(function(idToken) {
-            if (idToken) {
-                // Example: Send token to backend
-                const fileName = document.getElementById('sketch_name').value + '.ino';
-                   const arduinoCode = Ardublockly.generateArduino();
-
-                   // Step 2: Convert the Arduino code to a Blob to simulate file upload
-                   const file = new Blob([arduinoCode], { type: 'text/plain' });
-
-                   // Step 3: Get Firebase ID token for authentication
-                   firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-                   .then(function(idToken) {
-                       // Step 4: Send the file to your backend with fetch
-                       const formData = new FormData();
-                       formData.append('file', file, fileName);
-                       formData.append('folder', 'user');
-                       formData.append('version', '1.0.0');
-
-                       fetch('https://app.999666.link/upload', {
-//                       fetch('http://127.0.0.1:8080/upload', {
-                           method: 'POST',
-                           headers: {
-                               'Authorization': `Bearer ${idToken}`
-                           },
-                           body: formData // Send the form data including the file
-                       })
-                       .then(response => {
-                           if (!response.ok) {
-                               // Handle errors
-                               let errorMessage = 'Unexpected error';
-                               switch (response.status) {
-                                   case 400:
-                                       errorMessage = 'Bad Request: ' + response.statusText;
-                                       break;
-                                   case 401:
-                                       errorMessage = 'Unauthorized: ' + response.statusText;
-                                       break;
-                                   case 403:
-                                       errorMessage = 'Forbidden: ' + response.statusText;
-                                       break;
-                                   case 404:
-                                       errorMessage = 'Not Found: ' + response.statusText;
-                                       break;
-                                   case 500:
-                                       errorMessage = 'Internal Server Error: ' + response.statusText;
-                                       break;
-                                   default:
-                                       errorMessage = 'Error: ' + response.statusText;
-                                       break;
-                               }
-
-                               // Display the error modal
-                               				$('#errorModal').openModal({
-                                                                dismissible: true,
-                                                                opacity: .5,
-                                                                in_duration: 200,
-                                                                out_duration: 250
-                                                              });
-
-                               return Promise.reject(new Error('File upload failed'));
-                           }
-                           return response.text(); // Change this based on the expected response type
-                       })
-                       .then(data => {
-                           console.log('File upload successful:', data);
-                           	$('#modal1').openModal({
-                                  		dismissible: true,
-                                  		opacity: .5,
-                                  		in_duration: 200,
-                                  		out_duration: 250
-                                	 });
-                       })
-                       .catch(error => {
-                           // Handle network errors or other unexpected errors
-                           let errorMessage = 'Network error occurred: ' + error.message;
-                           // Display the error modal
-                           	$('#errorModal').openModal({
-                                                                                           dismissible: true,
-                                                                                           opacity: .5,
-                                                                                           in_duration: 200,
-                                                                                           out_duration: 250
-                                                                                         });
-
-                           console.error('Error uploading file:', error);
-                       });
-                   })
-                   .catch(function(error) {
-                       console.error('Error fetching ID token:', error);
-                   });
-            } else {
-                console.error('ID token is null.');
-            }
-        })
-        .catch(function(error) {
-            // Handle error when fetching the ID token
-            console.error('Error fetching ID token: ', error);
-        });
-} else {
-    console.error('No user is currently signed in.');
-
-      $('#login_dialog').openModal({
-        dismissible: true,
-        opacity: .5,
-        in_duration: 200,
-        out_duration: 250
-      });
-}
-
-//        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
-//          // Send the ID token to your backend via HTTP
-//          console.log(idToken);
-//          // You can now send the token to your backend using a POST request.
-//        }).catch(function(error) {
-//          // Handle error
-//          console.error('Error fetching ID token: ', error);
-//        });
-};
-
-
 
 /**
  * Creates an text file with the input content and files name, and prompts the
